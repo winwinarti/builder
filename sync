@@ -10,5 +10,5 @@ repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
 
 #Trees 
 git clone https://github.com/shield44/device_xiaomi_olivewood -b ppui device/xiaomi/olivewood
-git clone https://github.com/shield44/vendor_xiaomi_olivewood -b 11 vendor/xiaomi/olivewood
-git clone https://github.com/shield44/kernel_xiaomi_olivewood -b eleven kernel/xiaomi/olivewood
+git clone https://github.com/shield44/vendor_xiaomi_olivewood -b 11 vendor/xiaomi/olives
+git clone https://github.com/shield44/kernel_xiaomi_olivewood -b eleven kernel/xiaomi/sdm439

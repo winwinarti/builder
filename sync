@@ -3,7 +3,7 @@ mkdir -p /tmp/rom # Where to sync source
 cd /tmp/rom
 
 # Initialize local repository
-repo init --depth=1 -u https://github.com/PixelPlusUI-Elle/manifest -b eleven
+repo init -u https://github.com/PixelOS-Pixelish/manifest -b eleven
 
 # Sync make sure j = 8
 repo sync -c -j8 --force-sync --no-clone-bundle --no-tags

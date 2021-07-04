@@ -1,22 +1,12 @@
 #!/bin/bash
 cd /tmp/rom # Depends on where source got synced
 
-rm -rf out
-
 # Normal build steps
 . build/envsetup.sh
-lunch aosp_ginkgo-userdebug
+lunch aosp_olivewood-userdebug
 export USE_CCACHE=1
 ccache -M 20G # It took only 6.4GB for mido
-ccache -o compression=true # Will save times and data to download and upload ccache, also negligible performance issue
 
+mka bacon
 
-# upload function for uploading rom zip file! I don't want unwanted builds in my google drive haha!
-up(){
-	curl --upload-file $1 https://transfer.sh/$(basename $1); echo
-	# 14 days, 10 GB limit
-}
-
-brunch aosp_ginkgo-userdebug
-
-curl --upload-file ./out/target/product/ginkgo/*.zip  https://transfer.sh/pixelish.zip
+curl --upload-file ./out/target/product/olivewood/*.zip  https://transfer.sh/ppui.zip

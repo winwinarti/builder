@@ -1,0 +1,9 @@
+#!/bin/bash
+
+curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=Uploading ROM if exist at $(date)&chat_id=${tg_id}&parse_mode=html"
+
+time rclone copy /tmp/rom/out/target/product/juice/Nusantara*.zip inok:juice -P
+
+dlink=$(basename /tmp/out/target/product/juice/Nusantara*.zip)
+
+curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=Download ROM Link https://anu.inok189.workers.dev/juice/$dlink&chat_id=${tg_id}&parse_mode=html"

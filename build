@@ -1,12 +1,14 @@
 #!/bin/bash
 cd /tmp/rom # Depends on where source got synced
 
+rm -rf out
+
 # Normal build steps
 . build/envsetup.sh
-lunch aosp_olivewood-userdebug
+lunch aosp_ginkgo-userdebug
 export USE_CCACHE=1
-ccache -M 20G # It took only 6.4GB for mido
+ccache -M 60G
 
-mka bacon
+brunch aosp_ginkgo-userdebug
 
-curl --upload-file ./out/target/product/olivewood/*.zip  https://transfer.sh/ppui.zip
+curl --upload-file ./out/target/product/ginkgo/*.zip  https://transfer.sh/pixelish.zip

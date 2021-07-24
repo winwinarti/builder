@@ -4,11 +4,11 @@ env: # Environment variables to pass to all tasks
 
 task:
     name: xdroid-CAF # Project name
-    timeout_in: 4h
+    timeout_in: 2h
     container:
-        image: apon77/aosp:cirrus
-        cpu: 24
-        memory: 60G
+        image: dopaemon/bionic:latest
+        cpu: 14
+        memory: 32G
     sync_script: # To sync source
       - ./sync # Source sync script
     build_script: # Actual build script foreground

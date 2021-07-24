@@ -4,11 +4,11 @@ env: # Environment variables to pass to all tasks
 
 task:
     name: xdroid-CAF # Project name
-    timeout_in: 50h
+    timeout_in: 4h
     container:
         image: dopaemon/bionic:latest
-        cpu: 16
-        memory: 64G
+        cpu: 24
+        memory: 60G
     sync_script: # To sync source
       - ./sync # Source sync script
     build_script: # Actual build script foreground

@@ -12,7 +12,7 @@ export KBUILD_BUILD_HOST=irisprjkt
 repo init -u https://github.com/xdroid-CAF/xd_manifest -b eleven  --depth=1
 
 # Sync
-repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
 git clone https://github.com/ramadhannangga/device_asus_X01BD --depth=1 device/asus/X01BD
 git clone https://github.com/ramadhannangga/device_asus_sdm660-common --depth=1 device/asus/sdm660-common

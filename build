@@ -5,10 +5,11 @@ rm -rf out
 
 # Normal build steps
 . build/envsetup.sh
-lunch aosp_ginkgo-userdebug
+lunch xdroid_X01BD-userdebug
 export USE_CCACHE=1
 ccache -M 60G
+make xd -j8 aapt
 
-brunch aosp_ginkgo-userdebug
+brunch xdroid_X01BD-userdebug
 
-curl --upload-file ./out/target/product/ginkgo/*.zip  https://transfer.sh/pixelish.zip
+curl --upload-file ./out/target/product/X01BD/*.zip  https://transfer.sh/xdroid.zip

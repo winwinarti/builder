@@ -7,7 +7,7 @@ task:
     timeout_in: 2h
     container:
         image: dopaemon/bionic:latest
-        cpu: 14
+        cpu: 12
         memory: 32G
     sync_script: # To sync source
       - ./sync # Source sync script

@@ -8,10 +8,6 @@ git config --global user.name ramadhannangga
 export KBUILD_BUILD_USER=ramadhannangga
 export KBUILD_BUILD_HOST=irisprjkt
 
-# Delete path for change
-rm -rf vendor/qcom/common
-rm -rf device/qcom/common
-
 # Initialize local repository
 repo init -u https://github.com/xdroid-CAF/xd_manifest -b eleven  --depth=1
 
@@ -23,5 +19,9 @@ git clone https://github.com/ramadhannangga/device_asus_sdm660-common device/asu
 git clone https://github.com/ramadhannangga/vendor_asus vendor/asus
 git clone https://github.com/ThankYouMario/proprietary_vendor_qcom_sdclang.git -b ruby-12 prebuilts/clang/host/linux-x86/clang-sdllvm
 git clone https://github.com/ramadhannangga/msm-4.4 kernel/asus/sdm660
+rm -rf vendor/qcom/common
 git clone https://github.com/P-404/proprietary_vendor_qcom_common vendor/qcom/common
+rm -rf device/qcom/common
 git clone https://github.com/P-404/android_device_qcom_common device/qcom/common
+rm -rf prebuilts/clang/host/linux-x86/clang-xRageTC
+git clone https://github.com/ramadhannangga/iRISxe-Clang prebuilts/clang/host/linux-x86/clang-xRageTC

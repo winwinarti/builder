@@ -32,6 +32,9 @@ task:
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/NusantaraProject-ROM/android_manifest -b 11 -g default,-device,-mips,-darwin,-notdefault
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       - rm -rf hardware/interfaces && git clone --depth=1 https://github.com/MiBengal-Development/android_hardware_interfaces --single-branch -b lineage-18.1 hardware/interfaces
+      - cd /tmp/rom/build/soong
+      - git fetch https://github.com/PixelPlusUI-Elle/build_soong && git cherry-pick b67f50f0f28671a02a55fc5f8fc226206969fdf1
+      - cd /tmp/rom
       - git clone --depth=1 https://github.com/MiBengal-Development/Device_xiaomi_J --single-branch -b 11 device/xiaomi/juice
       - git clone --depth=1 https://github.com/I-n-o-k/prebuilt_vendor_juice --single-branch -b 11 vendor/xiaomi/juice
       - git clone --depth=1 https://github.com/MiBengal-Development/android_kernel_xiaomi_bengal  --single-branch -b 11.0 kernel/xiaomi/juice

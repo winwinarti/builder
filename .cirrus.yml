@@ -31,8 +31,6 @@ task:
       - git clone --depth=1 https://github.com/ramadhannangga/device_asus_sdm660-common --single-branch device/asus/sdm660-common
       - git clone --depth=1 https://github.com/ramadhannangga/vendor_asus --single-branch vendor/asus
       - git clone --depth=1 https://github.com/ramadhannangga/msm-4.4 --single-branch kernel/asus/sdm660
-      - rm -rf prebuilts/clang/host/linux-x86/clang-xRageTC
-      - git clone --depth=1 https://github.com/kdrag0n/proton-clang --single-branch prebuilts/clang/host/linux-x86/clang-proton
     monitor_background_script:
       - ./monitor
     build_script:

@@ -2,11 +2,9 @@ env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci"
     rclone_config: "ENCRYPTED[81f2ea42a1bb72f5514f01604e25bb9057eb0b6f1b0f5a18434dd7175df07619a880e75ecb9597e10e69fba44553fe84]"
-    bot_api: "ENCRYPTED[ef57f747d32c7145cad73cba52ab20330068ae5dcc6510a4c762bbbbac14881a135bda5689f4dbe75a30c39c18a3b8a4]"
-    tg_id: "ENCRYPTED[6f7afb813a6757a3ff95e1a90557ae57b3aed00a6af9860d7616c94c3bf2b390dedc23c8075bcc4adb14b8f1933ce49c]"
 
 task:
-    name: nusantara
+    name: xdroid-CAF
     timeout_in: 120m
     container:
       image: inok2341/builder:latest
@@ -17,28 +15,27 @@ task:
       - mkdir -p ~/.config/rclone
       - echo "$rclone_config" > ~/.config/rclone/rclone.conf
     download_ccache_background_script:
-      - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=Download ccache at $(date)&chat_id=${tg_id}&parse_mode=html"
       - df -h && free -h && nproc && cat /etc/os* && env
       - curl https://anu.inok189.workers.dev/nusantara/ccache.tar.gz -o /tmp/ccache.tar.gz
       - cd /tmp
       - time tar xf ccache.tar.gz
       - rm -rf ccache.tar.gz
     sync_script:
-      - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=Sync ROM at $(date)&chat_id=${tg_id}&parse_mode=html"
-      - git config --global  user.name "I-n-o-k"
-      - git config --global  user.email "inok.dr189@gmail.com"
+      - git config --global  user.name "ramadhannangga"
+      - git config --global  user.email "ramadhananggayudhanto@gmail.com"
       - mkdir -p /tmp/rom # Where to sync source
       - cd /tmp/rom
-      - repo init -q --no-repo-verify --depth=1 -u https://github.com/NusantaraProject-ROM/android_manifest -b 11 -g default,-device,-mips,-darwin,-notdefault
+      - repo init -q --no-repo-verify --depth=1 -u https://github.com/xdroid-CAF/xd_manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
-      - git clone --depth=1 https://github.com/MiBengal-Development/Device_xiaomi_J --single-branch -b 11 device/xiaomi/juice
-      - git clone --depth=1 https://github.com/I-n-o-k/prebuilt_vendor_juice --single-branch -b 11 vendor/xiaomi/juice
-      - git clone --depth=1 https://github.com/MiBengal-Development/android_kernel_xiaomi_bengal  --single-branch -b 11.0 kernel/xiaomi/juice
-      - git clone --depth=1 https://github.com/GengKapak/GengKapak-clang --single-branch -b 13 prebuilts/clang/host/linux-x86/clang-gengkapak
+      - git clone --depth=1 https://github.com/ramadhannangga/device_asus_X01BD --single-branch device/asus/X01BD
+      - git clone --depth=1 https://github.com/ramadhannangga/device_asus_sdm660-common --single-branch device/asus/sdm660-common
+      - git clone --depth=1 https://github.com/ramadhannangga/vendor_asus --single-branch vendor/asus
+      - git clone --depth=1 https://github.com/ramadhannangga/msm-4.4 --single-branch kernel/asus/sdm660
+      - rm -rf prebuilts/clang/host/linux-x86/clang-xRageTC
+      - git clone --depth=1 https://github.com/kdrag0n/proton-clang --single-branch prebuilts/clang/host/linux-x86/clang-proton
     monitor_background_script:
       - ./monitor
     build_script:
-      - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=Build ROM at $(date)&chat_id=${tg_id}&parse_mode=html"
       - ./build
       - time rclone copy /tmp/rom/out/error.log inok: -P
     upload_rom_script:
@@ -47,6 +44,4 @@ task:
       - ./tarccache
     upload_ccache_script:
       - cd /tmp
-      - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=Uploading ccache at $(date)&chat_id=${tg_id}&parse_mode=html"
       - time rclone copy ccache.tar.gz inok:nusantara -P 
-      - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=Upload ccache done at $(date)&chat_id=${tg_id}&parse_mode=html"

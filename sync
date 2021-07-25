@@ -24,4 +24,4 @@ git clone https://github.com/P-404/proprietary_vendor_qcom_common --depth=1 vend
 rm -rf device/qcom/common
 git clone https://github.com/P-404/android_device_qcom_common --depth=1 device/qcom/common
 rm -rf prebuilts/clang/host/linux-x86/clang-xRageTC
-git clone https://github.com/ramadhannangga/iRISxe-Clang --depth=1 prebuilts/clang/host/linux-x86/clang-xRageTC
+git clone https://github.com/ramadhannangga/iRISxe-Clang --depth=1 prebuilts/clang/host/linux-x86/clang-iRISxeTC

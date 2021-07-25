@@ -1,4 +1,4 @@
-  #!/bin/bash
+#!/bin/bash
 mkdir -p /tmp/rom # Where to sync source
 cd /tmp/rom
 
@@ -14,7 +14,13 @@ repo init --no-repo-verify --depth=1 -u https://github.com/xdroid-CAF/xd_manifes
 # Sync
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j4
 
+# Cloning Device Tree, Vendor Tree, Kernel Tree
 git clone --single-branch https://github.com/ramadhannangga/device_asus_X01BD --depth=1 device/asus/X01BD
 git clone --single-branch https://github.com/ramadhannangga/device_asus_sdm660-common --depth=1 device/asus/sdm660-common
 git clone --single-branch https://github.com/ramadhannangga/vendor_asus --depth=1 vendor/asus
 git clone --single-branch https://github.com/ramadhannangga/msm-4.4 --depth=1 kernel/asus/sdm660
+rm -rf vendor/qcom/common
+git clone --single-branch https://github.com/P-404/proprietary_vendor_qcom_common --depth=1 vendor/qcom/common
+rm -rf device/qcom/common
+git clone --single-branch https://github.com/P-404/android_device_qcom_common --depth=1 device/qcom/common
+

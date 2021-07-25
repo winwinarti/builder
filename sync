@@ -9,7 +9,7 @@ export KBUILD_BUILD_USER=ramadhannangga
 export KBUILD_BUILD_HOST=irisprjkt
 
 # Initialize local repository
-repo init --no-repo-verify --depth=1 -u https://github.com/ramadhannangga/xd_manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
+repo init --no-repo-verify --depth=1 -u https://github.com/xdroid-CAF/xd_manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
 
 # Sync
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j4

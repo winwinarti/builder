@@ -27,6 +27,8 @@ task:
       - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=Sync ROM at $(date)&chat_id=${tg_id}&parse_mode=html"
       - git config --global  user.name "ramadhannangga"
       - git config --global  user.email "ramadhananggayudhanto@gmail.com"
+      - export KBUILD_BUILD_USER=ramadhannangga
+      - export KBUILD_BUILD_HOST=irisprjkt
       - mkdir -p /tmp/rom # Where to sync source
       - cd /tmp/rom
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/xdroid-CAF/xd_manifest -b eleven -g default,-device,-mips,-darwin,-notdefault

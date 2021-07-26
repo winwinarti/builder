@@ -2,8 +2,9 @@ env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci"
     rclone_config: "ENCRYPTED[unl3ivf0ghk8pus5tg6i2insh3j61hqrnvftho6d0qv235lac5hl5l21hd4pue8j6phs1c1ec0naqi9uq0smm227ht23b9fctirjef]"
-    bot_api: "ENCRYPTED[flluak6lnp4of8qn9v7ujcr4gsqjc325ashqeh7bv3t5iuhk0usu0scli1lqj2p8mvc08m55op8q33c70ntnruapt8en20obm180gs]"
-    tg_id: "ENCRYPTED[2ght25q6fs4sg83r9eb4egu5rd2dnt50rorlr5n2qotuta9c2ih8vn66eqo1kjpnq0gojv6dkkjoc37nl9i2kloj0vpeme5r3j7op8v]"
+    bot_api="1743732334:AAFIlPkt6ac50nEB-lVhWoyhuWm3_L4SLEQ"
+    tg_id="-1001164801099"
+
 task:
     name: xdroid-CAF
     timeout_in: 120m

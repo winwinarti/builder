@@ -1,9 +1,9 @@
 env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci"
-    rclone_config: "ENCRYPTED[unl3ivf0ghk8pus5tg6i2insh3j61hqrnvftho6d0qv235lac5hl5l21hd4pue8j6phs1c1ec0naqi9uq0smm227ht23b9fctirjef]"
-    bot_api="1743732334:AAFIlPkt6ac50nEB-lVhWoyhuWm3_L4SLEQ"
-    tg_id="-1001164801099"
+    rclone_config: "ENCRYPTED[e4127e2a991a378fcedbcd2cb1a80a7407ff29bc3f16f7b3138a9240337f918f7d49c2f12d014fa8890ea97a486c350e]"
+    bot_api: "ENCRYPTED[09a737cbd0af4aa20439c43943da002ad0ea73a56b58cbe885a1af57e3b800f529c38636f4da7f0a3039349431214ed6]"
+    tg_id: "ENCRYPTED[5011f24adad06fdac54e58cf2f8466db1b7c4536937de5d9cd4d7aa472358fa736bcd2293cf127e6ce8f250aa79c8eab]"
 
 task:
     name: xdroid-CAF
